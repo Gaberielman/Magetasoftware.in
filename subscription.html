@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Subscription Plans | Mageta Software Inc.</title>
+    <meta name="description" content="Choose the perfect subscription plan for your business needs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .subscription-section {
+            padding: 100px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .subscription-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .subscription-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .subscription-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .pricing-card {
+            background: var(--card-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--neon-blue);
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--neon-blue);
+            background: rgba(0, 212, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            right: 30px;
+            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .plan-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .plan-price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .plan-billing {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .plan-features li {
+            padding: 10px 0;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+        }
+
+        .plan-features li:before {
+            content: "✓";
+            color: #00d4ff;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-button {
+            width: 100%;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--neon-blue), #0099ff);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        .plan-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .plan-button.outline {
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+        }
+
+        .plan-button.outline:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .comparison-section {
+            margin-top: 80px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-table th {
+            background: rgba(0, 212, 255, 0.1);
+            font-weight: 600;
+            color: #00d4ff;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #00d4ff;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .faq-section {
+            margin-top: 80px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .faq-item {
+            background: var(--card-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .faq-item h4 {
+            color: var(--neon-blue);
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            font-size: 0.9rem;
+        }
+
+        .theme-toggle-button {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
+            padding: 12px 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            z-index: 10000;
+        }
+
+        .modal-backdrop.active {
+            display: flex;
+        }
+
+        .modal-dialog {
+            width: min(620px, 100%);
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 26px;
+            padding: 30px;
+            box-shadow: 0 36px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        .modal-dialog h2 {
+            margin-bottom: 10px;
+        }
+
+        .modal-dialog .modal-intro {
+            color: #cbd5e1;
+            margin-bottom: 24px;
+        }
+
+        .modal-dialog label {
+            display: block;
+            margin-bottom: 8px;
+            margin-top: 18px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-dialog input,
+        .modal-dialog textarea {
+            width: 100%;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            padding: 14px 16px;
+        }
+
+        .modal-dialog textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 14px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 12px;
+                background: rgba(2, 2, 10, 0.95);
+                padding: 16px;
+                border-radius: 16px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .subscription-section {
+                padding: 80px 5% 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo" onclick="window.location.href='index.html'">Mageta<span>Software.inc</span></div>
+        <nav id="navMenu">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="index.html#services" class="nav-link">SERVICES</a>
+            <a href="subscription.html" class="nav-link">SUBSCRIPTION</a>
+            <a href="index.html#contact" class="nav-link">CONTACT</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle-button" aria-label="Toggle Light/Dark Theme">🌗</button>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+</header>
+
+<!-- SUBSCRIPTION HEADER -->
+<section class="subscription-section">
+    <div class="subscription-header">
+        <h1>Choose Your Plan</h1>
+        <p>Select the perfect subscription package tailored to your business needs. All plans include premium support and regular updates.</p>
+    </div>
+
+    <!-- PRICING CARDS -->
+    <div class="pricing-grid">
+        <!-- Starter Plan -->
+        <div class="pricing-card">
+            <div class="plan-name">Starter</div>
+            <div class="plan-price">$299</div>
+            <div class="plan-billing">/month - Billed monthly</div>
+            <ul class="plan-features">
+                <li>Up to 5 users</li>
+                <li>Basic ERP features</li>
+                <li>Email support</li>
+                <li>1 GB storage</li>
+                <li>Monthly backups</li>
+                <li>Community access</li>
+            </ul>
+            <button class="plan-button outline" data-plan="Starter">Get Started</button>
+        </div>
+
+        <!-- Professional Plan (Featured) -->
+        <div class="pricing-card featured">
+            <div class="featured-badge">MOST POPULAR</div>
+            <div class="plan-name">Professional</div>
+            <div class="plan-price">$799</div>
+            <div class="plan-billing">/month - Billed monthly</div>
+            <ul class="plan-features">
+                <li>Up to 50 users</li>
+                <li>Advanced ERP features</li>
+                <li>24/7 priority support</li>
+                <li>100 GB storage</li>
+                <li>Daily automated backups</li>
+                <li>Advanced analytics</li>
+                <li>Custom integrations</li>
+            </ul>
+            <button class="plan-button" data-plan="Professional">Subscribe Now</button>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="pricing-card">
+            <div class="plan-name">Enterprise</div>
+            <div class="plan-price">Custom</div>
+            <div class="plan-billing">Contact us for pricing</div>
+            <ul class="plan-features">
+                <li>Unlimited users</li>
+                <li>Full ERP suite</li>
+                <li>Dedicated account manager</li>
+                <li>Unlimited storage</li>
+                <li>Real-time backups</li>
+                <li>Custom development</li>
+                <li>SLA guarantee</li>
+                <li>On-premise option</li>
+            </ul>
+            <button class="plan-button outline" data-plan="Enterprise">Contact Sales</button>
+        </div>
+    </div>
+
+    <!-- WEBSITE PACKAGES SECTION -->
+    <div style="margin-top: 80px; padding-top: 60px; border-top: 1px solid rgba(0, 212, 255, 0.2);">
+        <h2 style="margin-bottom: 40px;">Website & Digital Services</h2>
+        <div class="pricing-grid">
+            <!-- Website Starter -->
+            <div class="pricing-card">
+                <div class="plan-name">Website Starter</div>
+                <div class="plan-price">$2,500</div>
+                <div class="plan-billing">One-time + $99/month maintenance</div>
+                <ul class="plan-features">
+                    <li>Professional website design</li>
+                    <li>Up to 10 pages</li>
+                    <li>Mobile responsive</li>
+                    <li>SEO optimization</li>
+                    <li>Contact forms</li>
+                    <li>SSL certificate included</li>
+                    <li>Email hosting (1 account)</li>
+                </ul>
+                <button class="plan-button outline" data-plan="Website Starter">Get Started</button>
+            </div>
+
+            <!-- Website Professional -->
+            <div class="pricing-card featured">
+                <div class="featured-badge">RECOMMENDED</div>
+                <div class="plan-name">Website Professional</div>
+                <div class="plan-price">$5,500</div>
+                <div class="plan-billing">One-time + $199/month maintenance</div>
+                <ul class="plan-features">
+                    <li>Custom design & branding</li>
+                    <li>Up to 25 pages</li>
+                    <li>E-commerce ready</li>
+                    <li>Advanced SEO</li>
+                    <li>Blog/CMS integration</li>
+                    <li>Payment gateway setup</li>
+                    <li>Email hosting (5 accounts)</li>
+                    <li>Monthly analytics reports</li>
+                </ul>
+                <button class="plan-button" data-plan="Website Professional">Subscribe Now</button>
+            </div>
+
+            <!-- Website Enterprise -->
+            <div class="pricing-card">
+                <div class="plan-name">Website Enterprise</div>
+                <div class="plan-price">From $12,000</div>
+                <div class="plan-billing">One-time + Custom maintenance</div>
+                <ul class="plan-features">
+                    <li>Fully custom build</li>
+                    <li>Unlimited pages</li>
+                    <li>Advanced e-commerce</li>
+                    <li>API integrations</li>
+                    <li>Performance optimization</li>
+                    <li>Unlimited email hosting</li>
+                    <li>24/7 support included</li>
+                    <li>Custom features & plugins</li>
+                </ul>
+                <button class="plan-button outline" data-plan="Website Enterprise">Contact Sales</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOCIAL MEDIA & DIGITAL FOOTPRINT SECTION -->
+    <div style="margin-top: 80px; padding-top: 60px; border-top: 1px solid rgba(0, 212, 255, 0.2);">
+        <h2 style="margin-bottom: 40px;">Social Media & Digital Footprint</h2>
+        <div class="pricing-grid">
+            <!-- Social Media Starter -->
+            <div class="pricing-card">
+                <div class="plan-name">Social Media Starter</div>
+                <div class="plan-price">$499</div>
+                <div class="plan-billing">/month</div>
+                <ul class="plan-features">
+                    <li>2 social media platforms</li>
+                    <li>4 posts per week</li>
+                    <li>Basic graphics & copy</li>
+                    <li>Monthly analytics report</li>
+                    <li>Community engagement (basic)</li>
+                    <li>Content calendar planning</li>
+                </ul>
+                <button class="plan-button outline" data-plan="Social Media Starter">Get Started</button>
+            </div>
+
+            <!-- Digital Footprint Pro -->
+            <div class="pricing-card featured">
+                <div class="featured-badge">MOST POPULAR</div>
+                <div class="plan-name">Digital Footprint Pro</div>
+                <div class="plan-price">$999</div>
+                <div class="plan-billing">/month</div>
+                <ul class="plan-features">
+                    <li>5 social media platforms</li>
+                    <li>Daily content posting</li>
+                    <li>Professional graphics & copywriting</li>
+                    <li>Influencer outreach support</li>
+                    <li>Community management</li>
+                    <li>Weekly analytics & optimization</li>
+                    <li>Paid ad campaign setup</li>
+                    <li>Crisis management support</li>
+                </ul>
+                <button class="plan-button" data-plan="Digital Footprint Pro">Subscribe Now</button>
+            </div>
+
+            <!-- Social Media Management Premium -->
+            <div class="pricing-card">
+                <div class="plan-name">Social Media Premium</div>
+                <div class="plan-price">$1,499</div>
+                <div class="plan-billing">/month</div>
+                <ul class="plan-features">
+                    <li>Unlimited platforms</li>
+                    <li>Custom brand strategy</li>
+                    <li>Video content creation</li>
+                    <li>Influencer partnerships</li>
+                    <li>Advanced SEO integration</li>
+                    <li>Real-time monitoring</li>
+                    <li>Dedicated account manager</li>
+                    <li>Monthly strategy review calls</li>
+                </ul>
+                <button class="plan-button outline" data-plan="Social Media Premium">Contact Sales</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BRAND DESIGN & UI/UX SECTION -->
+    <div style="margin-top: 80px; padding-top: 60px; border-top: 1px solid rgba(0, 212, 255, 0.2);">
+        <h2 style="margin-bottom: 40px;">Brand Design & UI/UX</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="plan-name">Logo & Poster Design</div>
+                <div class="plan-price">$1,200</div>
+                <div class="plan-billing">One-time</div>
+                <ul class="plan-features">
+                    <li>Custom logo set</li>
+                    <li>Brand poster design</li>
+                    <li>Color palette + typography</li>
+                    <li>Print-ready files</li>
+                    <li>3 revisions included</li>
+                </ul>
+                <button class="plan-button outline" data-plan="Logo & Poster Design">Get Started</button>
+            </div>
+            <div class="pricing-card featured">
+                <div class="featured-badge">UI/UX FOCUSED</div>
+                <div class="plan-name">UI/UX Growth</div>
+                <div class="plan-price">$4,500</div>
+                <div class="plan-billing">One-time</div>
+                <ul class="plan-features">
+                    <li>User research and wireframes</li>
+                    <li>Interactive prototypes</li>
+                    <li>Mobile & desktop UX flows</li>
+                    <li>Design system handoff</li>
+                    <li>Brand consistency review</li>
+                    <li>High-fidelity visuals</li>
+                </ul>
+                <button class="plan-button" data-plan="UI/UX Growth">Subscribe Now</button>
+            </div>
+            <div class="pricing-card">
+                <div class="plan-name">Enterprise Brand System</div>
+                <div class="plan-price">From $8,500</div>
+                <div class="plan-billing">One-time</div>
+                <ul class="plan-features">
+                    <li>Full brand identity</li>
+                    <li>UI/UX strategy and review</li>
+                    <li>Marketing collateral set</li>
+                    <li>Design guidelines</li>
+                    <li>Launch-ready assets</li>
+                    <li>Ongoing creative support</li>
+                </ul>
+                <button class="plan-button outline" data-plan="Enterprise Brand System">Contact Sales</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- INQUIRY MODAL -->
+<div class="modal-backdrop" id="inquiry-modal">
+    <div class="modal-dialog">
+        <h2>Tell Us About Your Project</h2>
+        <p class="modal-intro">We’ll reach out within 24 hours to discuss next steps.</p>
+        <form id="inquiry-form">
+            <label for="selected-plan">Selected Package</label>
+            <input type="text" id="selected-plan" name="selected-plan" readonly>
+
+            <label for="company-name">Company / Brand Name</label>
+            <input type="text" id="company-name" name="company-name" placeholder="Your company name" required>
+
+            <label for="contact-name">Contact Person</label>
+            <input type="text" id="contact-name" name="contact-name" placeholder="Your name" required>
+
+            <label for="email-address">Email Address</label>
+            <input type="email" id="email-address" name="email-address" placeholder="you@company.com" required>
+
+            <label for="phone-number">Phone Number</label>
+            <input type="tel" id="phone-number" name="phone-number" placeholder="+123 456 7890" required>
+
+            <label for="project-details">Project Details</label>
+            <textarea id="project-details" name="project-details" placeholder="Tell us what you need" required></textarea>
+
+            <div class="modal-actions">
+                <button type="button" class="plan-button outline" id="close-modal">Cancel</button>
+                <button type="submit" class="plan-button">Submit Inquiry</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- FEATURE COMPARISON -->
+    <div class="comparison-section">
+        <h2 style="margin-bottom: 40px;">Feature Comparison</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Starter</th>
+                    <th>Professional</th>
+                    <th>Enterprise</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Number of Users</td>
+                    <td>5</td>
+                    <td>50</td>
+                    <td>Unlimited</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>1 GB</td>
+                    <td>100 GB</td>
+                    <td>Unlimited</td>
+                </tr>
+                <tr>
+                    <td>Email Support</td>
+                    <td><span class="check-icon">✓</span></td>
+                    <td><span class="check-icon">✓</span></td>
+                    <td><span class="check-icon">✓</span></td>
+                </tr>
+                <tr>
+                    <td>24/7 Priority Support</td>
+                    <td></td>
+                    <td><span class="check-icon">✓</span></td>
+                    <td><span class="check-icon">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Advanced Analytics</td>
+                    <td></td>
+                    <td><span class="check-icon">✓</span></td>
+                    <td><span class="check-icon">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Custom Integrations</td>
+                    <td></td>
+                    <td><span class="check-icon">✓</span></td>
+                    <td><span class="check-icon">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Dedicated Account Manager</td>
+                    <td></td>
+                    <td></td>
+                    <td><span class="check-icon">✓</span></td>
+                </tr>
+                <tr>
+                    <td>SLA Guarantee</td>
+                    <td></td>
+                    <td></td>
+                    <td><span class="check-icon">✓</span></td>
+                </tr>
+                <tr>
+                    <td>On-Premise Option</td>
+                    <td></td>
+                    <td></td>
+                    <td><span class="check-icon">✓</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="faq-section">
+        <h2 style="margin-bottom: 40px;">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>Can I upgrade or downgrade anytime?</h4>
+                <p>Yes! You can change your plan at any time. Changes take effect on your next billing cycle.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What payment methods do you accept?</h4>
+                <p>We accept credit cards, bank transfers, and all major payment gateways for your convenience.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is there a free trial?</h4>
+                <p>Yes, we offer a 14-day free trial for the Professional plan with no credit card required.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What about data security?</h4>
+                <p>Your data is encrypted with industry-standard security and backed up multiple times daily.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Do you offer discounts for annual billing?</h4>
+                <p>Yes! Get 20% off when you choose annual billing instead of monthly.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What is your refund policy?</h4>
+                <p>We offer a 30-day money-back guarantee if you're not satisfied with our service.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>&copy; <span id="year"></span> Mageta Software Inc. All rights reserved.</p>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    function toggleMenu() {
+        const navMenu = document.getElementById('navMenu');
+        navMenu.classList.toggle('active');
+    }
+
+    // Close mobile menu when clicking links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navMenu').classList.remove('active');
+        });
+    });
+
+    // Update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const inquiryModal = document.getElementById('inquiry-modal');
+    const inquiryForm = document.getElementById('inquiry-form');
+    const selectedPlanInput = document.getElementById('selected-plan');
+    const closeModalButton = document.getElementById('close-modal');
+
+    // Theme toggle
+    const currentTheme = localStorage.getItem('site-theme');
+    if (currentTheme === 'light') {
+        document.body.classList.add('light-theme');
+        themeToggle.textContent = '☀️';
+    }
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-theme');
+        const isLight = document.body.classList.contains('light-theme');
+        localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
+        themeToggle.textContent = isLight ? '☀️' : '🌗';
+    });
+
+    // Subscribe button handlers
+    document.querySelectorAll('.plan-button[data-plan]').forEach(button => {
+        button.addEventListener('click', function() {
+            const planName = this.dataset.plan;
+            selectedPlanInput.value = planName;
+            inquiryModal.classList.add('active');
+        });
+    });
+
+    closeModalButton.addEventListener('click', () => {
+        inquiryModal.classList.remove('active');
+    });
+
+    inquiryModal.addEventListener('click', event => {
+        if (event.target === inquiryModal) {
+            inquiryModal.classList.remove('active');
+        }
+    });
+
+    inquiryForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const plan = selectedPlanInput.value;
+        const company = document.getElementById('company-name').value.trim();
+        const contact = document.getElementById('contact-name').value.trim();
+        const email = document.getElementById('email-address').value.trim();
+
+        if (!company || !contact || !email) {
+            alert('Please fill in all required fields so we can reach out.');
+            return;
+        }
+
+        inquiryModal.classList.remove('active');
+        inquiryForm.reset();
+        selectedPlanInput.value = plan;
+
+        alert(`Thanks! We received your inquiry for ${plan}. Our team will contact ${contact} at ${email} shortly.`);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,1729 @@
+/* --- MAGETA SOFTWARE MASTER STYLING --- */
+:root {
+    --bg-deep: #020205;
+    --bg-surface: rgba(7, 14, 23, 0.95);
+    --card-surface: rgba(255, 255, 255, 0.05);
+    --text-main: #f8fbff;
+    --text-muted: rgba(255, 255, 255, 0.75);
+    --text-muted-light: rgba(15, 23, 42, 0.7);
+    --neon-blue: #00d4ff;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border-glass: rgba(255, 255, 255, 0.1);
+    --font-main: 'Poppins', sans-serif;
+    --nav-h: 80px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.light-theme {
+    --bg-deep: #f5f7fb;
+    --bg-surface: rgba(255, 255, 255, 0.95);
+    --card-surface: rgba(255, 255, 255, 0.9);
+    --text-main: #0f172a;
+    --text-muted: rgba(15, 23, 42, 0.65);
+    --text-muted-light: rgba(15, 23, 42, 0.45);
+    --neon-blue: #0056b3;
+    --glass: rgba(255, 255, 255, 0.8);
+    --border-glass: rgba(15, 23, 42, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+
+/* Background Graphic */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, #0a0a1a 0%, #000 100%);
+    z-index: -2;
+}
+
+/* --- NAVIGATION --- */
+.navbar {
+    position: fixed;
+    top: 0; width: 100%; height: var(--nav-h);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background: rgba(2, 2, 5, 0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border-glass);
+    z-index: 1000;
+}
+
+.logo { font-weight: 600; letter-spacing: 2px; color: var(--neon-blue); }
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+nav a:hover { color: var(--neon-blue); }
+
+/* --- HERO SECTION --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--nav-h) 8% 50px;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.brand {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff, var(--neon-blue), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.4));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* --- GENERAL SECTION STYLING --- */
+section { padding: 100px 8%; max-width: 1400px; margin: 0 auto; }
+h2 { font-size: 2.5rem; margin-bottom: 40px; text-align: center; text-transform: uppercase; letter-spacing: 4px; }
+
+/* --- ABOUT GRID --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image img { width: 100%; border-radius: 10px; border: 1px solid var(--border-glass); }
+
+/* --- TEAM & PRODUCTS GRID --- */
+.team-grid, .products-grid, .beyond-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-card, .product-card, .beyond-card {
+    background: var(--glass);
+    border: 1px solid var(--border-glass);
+    padding: 40px 25px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+.team-card img, .product-card img {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 2px solid var(--neon-blue);
+}
+
+.team-card:hover, .product-card:hover {
+    border-color: var(--neon-blue);
+    transform: translateY(-10px);
+    background: rgba(0, 212, 255, 0.05);
+}
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--neon-blue);
+    color: #000;
+    box-shadow: 0 0 25px var(--neon-blue);
+}
+
+.theme-toggle-button {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    color: #fff;
+    padding: 12px 18px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.theme-toggle-button:hover {
+    filter: brightness(1.05);
+}
+
+/* --- CONTACT FORM --- */
+.contact-form {
+    max-width: 700px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    background: var(--glass);
+    border: 1px solid var(--border-glass);
+    padding: 15px;
+    color: #fff;
+    font-family: inherit;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--neon-blue);
+    outline: none;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 900px) {
+    .hero-container, .about-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-image { order: -1; } /* Image on top for mobile */
+    nav { display: none; } /* Hide desktop nav */
+    .menu-toggle { display: block; }
+}
+
+/* --- UNIVERSAL IMAGE STANDARDIZATION --- */
+
+/* 1. Profile Images (Team Section) */
+.team-card img {
+    width: 150px; 
+    height: 150px;
+    object-fit: cover; /* Crops the image to fill the circle without stretching */
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid var(--neon-blue);
+    background: #fff; /* Helps if a photo has a transparent background */
+}
+
+/* 2. Service/Product Icons */
+.product-card img, .erp-visual img {
+    width: 100%;
+    max-width: 120px; /* Standardized icon size */
+    height: 120px;
+    object-fit: contain; /* Ensures the whole icon is visible without cropping */
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 15px rgba(0, 212, 255, 0.2));
+}
+
+/* 3. Hero & About Images (Large Visuals) */
+.hero-image img, .about-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Professional widescreen ratio */
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* 4. Leadership Section Founders Image */
+.about-image img {
+    aspect-ratio: 4 / 3; /* Slightly taller for portrait-style founder photos */
+    border: 1px solid var(--border-glass);
+}
+
+/* --- UNIVERSAL IMAGE STANDARDIZATION --- */
+
+/* Standardize Team & Product Circle Images */
+.team-card img, .product-card img {
+    width: 150px !important; 
+    height: 150px !important;
+    object-fit: cover; /* This crops the image to fill the circle perfectly */
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    display: block;
+    border: 2px solid var(--neon-blue);
+    background-color: #fff; /* Ensures transparent PNGs look clean */
+    transition: transform 0.3s ease;
+}
+
+/* Fix Hero Logo Aspect Ratio */
+.hero-image img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain; /* Prevents the logo from being cut off */
+    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3));
+}
+
+/* Fix Service Icons (ERP & Product Icons) */
+.service-main img, .product-card img {
+    max-width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 25px;
+}
+
+/* Standardization for the About Image (Founders) */
+.about-image img {
+    width: 100%;
+    height: 400px; /* Uniform height for a professional look */
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* --- TEAM SECTION REDESIGN --- */
+.team-section {
+    padding: 120px 8%;
+}
+
+.team-modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+/* The Glass Card Structure */
+.team-glass-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4; /* Professional portrait ratio */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.team-glass-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps faces perfectly proportioned */
+    filter: grayscale(40%); /* High-end editorial look */
+    transition: 0.6s ease;
+}
+
+/* The Magical Hover Effect */
+.name-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 30px;
+    background: linear-gradient(to top, rgba(2, 2, 5, 0.9), transparent);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.team-glass-card:hover {
+    transform: scale(1.02);
+    border-color: var(--neon-blue);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.team-glass-card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.team-glass-card:hover .name-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Typography Inside Cards */
+.member-role {
+    display: block;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.name-overlay h4 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0;
+}
+
+/* --- ELITE IMAGE STANDARDIZATION --- */
+
+/* Standardize Team Circle Images */
+.team-card img {
+    width: 160px !important; 
+    height: 160px !important;
+    object-fit: cover; /* Crops any image to fit the circle perfectly */
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid var(--neon-blue);
+    background: #fff; /* Protects transparent logos */
+}
+
+/* Service & Product Icons */
+.product-card img, .service-main img {
+    width: 100%;
+    max-width: 120px;
+    height: 120px;
+    object-fit: contain; /* Ensures icons aren't cut off */
+    margin-bottom: 25px;
+    filter: drop-shadow(0 10px 20px rgba(0, 212, 255, 0.2));
+}
+
+/* Founder & Large Visuals */
+.about-image img {
+    width: 100%;
+    height: 450px;
+    object-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border-glass);
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.bento-card {
+    background: var(--glass);
+    border: 1px solid var(--border-glass);
+    padding: 40px;
+    border-radius: 24px;
+    transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.bento-card.highlight {
+    border-color: var(--neon-blue);
+    background: rgba(0, 212, 255, 0.03);
+}
+
+.tags { display: flex; gap: 8px; margin-top: 20px; }
+.tags span {
+    font-size: 10px;
+    padding: 4px 10px;
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--neon-blue);
+    border-radius: 100px;
+    text-transform: uppercase;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.team-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 450px; /* Portrait height */
+}
+
+.team-card img {
+    width: 100%;
+    height: 100% !important;
+    border-radius: 0; /* Removing the circle for a "Different Feel" */
+    object-fit: cover;
+    filter: grayscale(100%); /* High-end editorial look */
+    transition: 0.6s ease;
+}
+
+.team-card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.team-card h4, .team-card p {
+    position: absolute;
+    bottom: -50px; /* Hidden initially */
+    left: 20px;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+
+.team-card:hover h4 { bottom: 50px; }
+.team-card:hover p { bottom: 25px; }
+
+/* Gradient overlay for text readability */
+.team-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    opacity: 0;
+    transition: 0.5s;
+}
+.team-card:hover::after { opacity: 1; }
+
+/* --- MODERN CONTACT SECTION --- */
+.contact-section {
+    padding: 120px 8%;
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+/* Glass Info Card */
+.contact-info-glass {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-glass);
+    padding: 50px;
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+}
+
+.info-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 35px;
+    align-items: center;
+}
+
+.info-item .icon { font-size: 24px; }
+.info-item h4 { color: var(--neon-blue); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Animated Form Inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* Floating Label Logic */
+.input-group input:focus ~ label,
+.input-group input:valid ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:valid ~ label {
+    top: -20px;
+    font-size: 12px;
+    color: var(--neon-blue);
+}
+
+.bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--neon-blue);
+    transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.input-group input:focus ~ .bar, .input-group textarea:focus ~ .bar {
+    width: 100%;
+}
+
+/* High-End Submit Button */
+.btn-submit {
+    width: 100%;
+    padding: 20px;
+    background: var(--neon-blue);
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.btn-submit:hover {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+/* --- SERVICES & IMAGES --- */
+.services-section { padding: 120px 8%; }
+
+/* Image Stabilization */
+.card-img-container {
+    width: 100%;
+    height: 180px; /* Fixed height for product visuals */
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures logo/icon isn't cut off */
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+/* ERP Flagship Styling */
+.flagship-glass {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-glass);
+    padding: 60px;
+    border-radius: 24px;
+    align-items: center;
+    gap: 40px;
+}
+
+.badge {
+    color: var(--neon-blue);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* WORK PROCESS STEP-BY-STEP */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.process-step {
+    position: relative;
+    padding: 30px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.step-number {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    opacity: 0.2;
+    color: var(--neon-blue);
+}
+
+.process-icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Connector line for Desktop */
+@media (min-width: 1024px) {
+    .process-step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        top: 50%;
+        right: -25px;
+        transform: translateY(-50%);
+        color: var(--neon-blue);
+        font-size: 24px;
+        opacity: 0.3;
+    }
+}
+
+/* --- MULTI-PAGE STYLING --- */
+
+/* Specific layout for the About page hero */
+.about-hero {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+}
+
+.about-hero h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    margin-bottom: 20px;
+}
+
+.about-details {
+    padding: 100px 8%;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-text-elite p {
+    font-size: 1.2rem;
+    color: #aaa;
+    line-height: 1.8;
+    margin-top: 30px;
+}
+
+/* Navbar active state indicator */
+nav a.active {
+    color: var(--neon-blue);
+    opacity: 1;
+    border-bottom: 2px solid var(--neon-blue);
+}
+
+/* --- ABOUT PAGE SPECIFICS --- */
+.about-hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 8%;
+    background: radial-gradient(circle at 50% 100%, rgba(0, 212, 255, 0.15), transparent 60%);
+}
+
+.eyebrow {
+    color: var(--neon-blue);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Mission/Vision Split */
+
+.mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 100px 8%;
+}
+
+.vision-box {
+    padding: 60px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.vision-box.highlight {
+    background: rgba(0, 212, 255, 0.03);
+    border-color: rgba(0, 212, 255, 0.2);
+}
+
+/* Core Values Grid */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 60px 8%;
+}
+
+.value-card {
+    background: var(--glass);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.value-card:hover {
+    background: rgba(255,255,255,0.05);
+    transform: translateY(-5px);
+}
+
+.value-icon { font-size: 30px; margin-bottom: 20px; display: block; }
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    .mission-vision, .values-grid { grid-template-columns: 1fr; }
+}
+
+/* --- MOBILE RESPONSIVENESS OVERHAUL --- */
+
+@media (max-width: 768px) {
+    /* 1. Navigation */
+    .menu-toggle {
+        display: block; /* Show hamburger */
+        font-size: 28px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    #navMenu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hide off-screen */
+        width: 80%;
+        height: 100vh;
+        background: rgba(2, 2, 5, 0.98);
+        backdrop-filter: blur(15px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        z-index: 1000;
+    }
+
+    #navMenu.active {
+        right: 0; /* Slide in */
+    }
+
+    /* 2. Hero Section */
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    /* 3. Services & Bento Grids */
+    .erp-glass-card {
+        grid-template-columns: 1fr;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .erp-visual {
+        order: -1; /* Image appears above text on mobile */
+    }
+
+    .products-grid, .values-grid, .bento-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 20px;
+    }
+
+    /* 4. Team Section */
+    .team-modern-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10%;
+    }
+
+    .team-glass-card {
+        aspect-ratio: 1 / 1.2; /* Slightly wider on mobile */
+    }
+
+    /* 5. Contact Section */
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info-glass {
+        padding: 30px;
+    }
+
+    /* 6. About Page Specifics */
+    .mission-vision {
+        grid-template-columns: 1fr;
+        padding: 60px 5%;
+    }
+}
+
+/* Tablets (iPad/Small Laptops) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .products-grid, .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- DIRECTORS SPOTLIGHT --- */
+.directors-section {
+    padding: 120px 8%;
+    background: radial-gradient(circle at left bottom, rgba(0, 212, 255, 0.03), transparent 50%);
+}
+
+.section-header-centered {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.director-spotlight {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Asymmetric for interest */
+    gap: 80px;
+    align-items: center;
+}
+
+/* The "Special" Image Styling */
+.director-image-container {
+    position: relative;
+    max-width: 500px;
+}
+
+.director-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px; /* Sharp corners look more "Director-level" */
+    position: relative;
+    z-index: 2;
+    filter: contrast(1.05) grayscale(10%); /* Subtle editorial filter */
+}
+
+.accent-frame {
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--neon-blue);
+    opacity: 0.4;
+    z-index: 1;
+}
+
+/* Text Content Styling */
+.role-badge {
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.director-content h3 {
+    font-size: 2.8rem;
+    font-family: 'Italiana', serif;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.philosophy-quote {
+    border-left: 2px solid var(--neon-blue);
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+
+.philosophy-quote p {
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.director-bio {
+    color: #aaa;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+/* --- NEW HERO SECTIONS --- */
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#navMenu {
+    display: flex;
+    gap: 30px;
+}
+
+#navMenu.active {
+    display: flex;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--neon-blue);
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--neon-blue);
+}
+
+/* Hero Section */
+.welcome-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero-text {
+    z-index: 2;
+}
+
+.tagline {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin: 20px 0 30px 0;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, var(--neon-blue), #0099ff);
+    color: #000;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-outline:hover {
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+}
+
+/* About Intro Section */
+.about-intro {
+    padding: 80px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(0, 212, 255, 0.02);
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.about-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Founders Section */
+.founders {
+    padding: 100px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.founders-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-label {
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.founders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+}
+
+.founder-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.founder-image {
+    width: 100%;
+}
+
+.founder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border-glass);
+}
+
+.founder-info {
+    padding: 20px;
+}
+
+.founder-role {
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.founder-info h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.founder-info h3 span {
+    background: linear-gradient(135deg, #fff, var(--neon-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.founder-info blockquote {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--neon-blue);
+    padding-left: 20px;
+}
+
+.founder-info p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.link-arrow {
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.link-arrow:hover {
+    color: #fff;
+}
+
+/* Expertise Section */
+.expertise {
+    padding: 100px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.expertise-intro {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 60px;
+}
+
+.expertise-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 80px;
+    background: rgba(0, 212, 255, 0.03);
+    padding: 50px;
+    border-radius: 12px;
+    border: 1px solid var(--border-glass);
+}
+
+.expertise-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.expertise-text h4 {
+    color: var(--neon-blue);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.expertise-text p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.expertise-image {
+    width: 100%;
+}
+
+.expertise-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-glass);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.product-card:hover {
+    border-color: var(--neon-blue);
+    background: rgba(0, 212, 255, 0.05);
+    transform: translateY(-10px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.product-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.product-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+.work-process {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.process-step {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-glass);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    transition: 0.4s;
+}
+
+.process-step:hover {
+    border-color: var(--neon-blue);
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.step-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--neon-blue);
+    margin-bottom: 10px;
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.process-step h4 {
+    margin-bottom: 10px;
+}
+
+.process-step p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.arrow {
+    display: none;
+}
+
+/* Beyond ERP Section */
+.beyond-erp {
+    padding: 100px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-glass);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.service-card:hover {
+    border-color: var(--neon-blue);
+    background: rgba(0, 212, 255, 0.05);
+    transform: translateY(-10px);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.service-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.service-tags {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.service-tags span {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Contact Section */
+.contact {
+    padding: 100px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border-glass);
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.contact-header h2 {
+    margin-bottom: 15px;
+}
+
+.contact-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.info-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.info-item h4 {
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-glass);
+    border-radius: 6px;
+    color: #fff;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--neon-blue);
+    background: rgba(0, 212, 255, 0.05);
+    outline: none;
+}
+
+.contact-form button {
+    padding: 15px;
+    background: linear-gradient(135deg, var(--neon-blue), #0099ff);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+}
+
+/* Footer */
+.footer {
+    padding: 40px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    border-top: 1px solid var(--border-glass);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .director-spotlight {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+    }
+
+    .director-image-container {
+        margin: 0 auto;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+
+    .founder-card {
+        grid-template-columns: 1fr;
+    }
+
+    .expertise-main {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    #navMenu {
+        position: fixed;
+        top: var(--nav-h);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--nav-h));
+        background: rgba(2, 2, 5, 0.95);
+        flex-direction: column;
+        padding: 30px;
+        gap: 20px;
+        display: none;
+    }
+
+    #navMenu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+    .accent-frame {
+        left: 0;
+        top: 15px;
+    }
+
+    .director-content h3 {
+        font-size: 2rem;
+    }
+
+    .philosophy-quote {
+        border-left: none;
+        border-top: 1px solid var(--neon-blue);
+        padding: 20px 0;
+    }
+}
+
+
+/* --- UNIFIED BRANDING (NAV & FOOTER) --- */
+
+/* Shared Glass Effect */
+.navbar, .footer-glass-container {
+    background: rgba(2, 2, 5, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Navbar Specifics */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+    height: 80px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    cursor: pointer;
+}
+
+.logo span {
+    color: var(--neon-blue);
+    font-weight: 300;
+}
+
+/* Footer Specifics */
+.main-footer {
+    padding: 80px 5% 40px 5%;
+    margin-top: 100px;
+}
+
+.footer-glass-container {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    padding: 60px 40px 20px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #aaa;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: var(--neon-blue);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+    font-size: 12px;
+    color: #555;
+}
+
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-links {
+        align-items: center;
+    }
+}
+
+/* -- Added utilities for new Tailwind-based sections -- */
+.container { max-width: 1200px; margin: 0 auto; }
+.text-accent { color: #06b6d4; }
+.bg-accent { background-color: #06b6d4; }
+
+/* Modal base styles (used by index.js) */
+#schedule-modal { display: none; }
+#schedule-modal.items-center { display: flex; }
+
+/* Simple accessible focus outline for buttons */
+button:focus { outline: 3px solid rgba(6, 182, 212, 0.25); outline-offset: 2px; }
+
+/* Polished visual helpers */
+.text-gradient {
+    background: linear-gradient(90deg, #fff, #06b6d4 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.popular-badge {
+    background: linear-gradient(90deg, rgba(6,182,212,0.12), rgba(59,130,246,0.08));
+    color: #bfefff;
+    border: 1px solid rgba(6,182,212,0.18);
+    padding: 6px 10px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.card-highlight { box-shadow: 0 12px 40px rgba(2,6,23,0.6); border-color: rgba(6,182,212,0.16); }
+
+/* Button refinements */
+.bg-accent { background: linear-gradient(90deg,#06b6d4,#3b82f6); box-shadow: 0 8px 30px rgba(3,105,161,0.12); }
+button.bg-accent:hover { transform: translateY(-2px); }
+
+/* Mobile nav slide-in states */
+#mobile-nav { display: none; }
+#mobile-nav.open { transform: translateX(0); display: block; }
+
+/* Make hero illustration area look more refined on larger screens */
+.hero-visual { border-radius: 16px; padding: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(6,182,212,0.01)); border: 1px solid rgba(255,255,255,0.03); }
