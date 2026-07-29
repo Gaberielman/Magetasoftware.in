@@ -21,6 +21,11 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.menu-open {
+    overflow: hidden;
 }
 
 .light-theme {
@@ -35,6 +40,60 @@ body {
     --border-glass: rgba(15, 23, 42, 0.08);
 }
 
+body.light-theme {
+    color: var(--text-main);
+    text-shadow: none;
+}
+
+body.light-theme .brand {
+    background: linear-gradient(135deg, #0f172a, var(--neon-blue), #0f172a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: none;
+}
+
+body.light-theme .welcome-text,
+body.light-theme .tagline,
+body.light-theme .intro-text,
+body.light-theme .expertise-intro,
+body.light-theme .bento-card p,
+body.light-theme .product-card p,
+body.light-theme .service-card p,
+body.light-theme .process-step p,
+body.light-theme .contact-header p,
+body.light-theme .info-item p,
+body.light-theme .contact-form input,
+body.light-theme .contact-form textarea,
+body.light-theme .footer p,
+body.light-theme .value-card p,
+body.light-theme .vision-box p {
+    color: var(--text-muted);
+}
+
+body.light-theme .nav-link,
+body.light-theme .btn-outline,
+body.light-theme .btn-secondary,
+body.light-theme .btn-primary,
+body.light-theme .info-item h4,
+body.light-theme .section-title,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme p,
+body.light-theme a {
+    color: var(--text-main);
+}
+
+body.light-theme .btn-secondary,
+body.light-theme .btn-primary {
+    color: #fff;
+}
+
+body.light-theme .btn-outline {
+    color: var(--text-main);
+    border-color: var(--neon-blue);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 
@@ -43,8 +102,12 @@ body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 50% 50%, #0a0a1a 0%, #000 100%);
+    background: radial-gradient(circle at 50% 50%, var(--bg-deep) 0%, var(--bg-deep) 100%);
     z-index: -2;
+}
+
+body.light-theme::before {
+    background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-deep) 100%);
 }
 
 /* --- NAVIGATION --- */
@@ -55,7 +118,7 @@ body::before {
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    background: rgba(2, 2, 5, 0.85);
+    background: var(--bg-surface);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border-glass);
     z-index: 1000;
@@ -64,7 +127,7 @@ body::before {
 .logo { font-weight: 600; letter-spacing: 2px; color: var(--neon-blue); }
 
 nav a {
-    color: #fff;
+    color: var(--text-main);
     text-decoration: none;
     margin-left: 25px;
     font-size: 13px;
@@ -101,9 +164,13 @@ nav a:hover { color: var(--neon-blue); }
 
 .hero-image img {
     max-width: 100%;
+    width: min(520px, 100%);
     height: auto;
-    filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.4));
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 35px rgba(0, 212, 255, 0.45));
     animation: float 6s ease-in-out infinite;
+    object-fit: contain;
 }
 
 @keyframes float {
@@ -114,6 +181,75 @@ nav a:hover { color: var(--neon-blue); }
 /* --- GENERAL SECTION STYLING --- */
 section { padding: 100px 8%; max-width: 1400px; margin: 0 auto; }
 h2 { font-size: 2.5rem; margin-bottom: 40px; text-align: center; text-transform: uppercase; letter-spacing: 4px; }
+.section-title { font-size: 2rem; margin-bottom: 30px; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
+.about-intro { padding: 140px 8% 60px; }
+.about-content { max-width: 900px; margin: 0 auto; text-align: center; }
+.intro-text { font-size: 1.08rem; line-height: 1.9; color: var(--text-muted); margin-bottom: 30px; }
+.about-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.btn-secondary, .btn-outline { display: inline-block; padding: 14px 30px; border-radius: 999px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+.btn-secondary { background: var(--neon-blue); color: #000; }
+.btn-outline { border: 1px solid var(--neon-blue); color: var(--text-main); }
+.btn-outline:hover { background: rgba(0, 212, 255, 0.1); }
+.hero-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+.contact-cta { padding: 80px 8% 40px; text-align: center; }
+.contact-cta p { max-width: 700px; margin: 0 auto 24px; color: var(--text-muted); }
+.floating-actions {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1200;
+}
+
+.action-float {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    border: 2px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    color: #fff;
+}
+
+.action-float svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+.action-float:hover {
+    transform: translateY(-4px) scale(1.03);
+    filter: brightness(1.05);
+}
+
+.action-float:active {
+    transform: scale(0.96);
+}
+
+.email-float {
+    background: linear-gradient(135deg, #0f76ff 0%, #2563eb 100%);
+    box-shadow: 0 14px 32px rgba(37, 99, 235, 0.28);
+    padding: 0;
+    overflow: hidden;
+}
+
+.email-float img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.whatsapp-float {
+    background: linear-gradient(135deg, #25d366 0%, #1ebe5d 100%);
+    box-shadow: 0 14px 32px rgba(37, 211, 102, 0.28);
+}
 
 /* --- ABOUT GRID --- */
 .about-grid {
@@ -185,10 +321,51 @@ h2 { font-size: 2.5rem; margin-bottom: 40px; text-align: center; text-transform:
     padding: 12px 18px;
     cursor: pointer;
     transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .theme-toggle-button:hover {
     filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--neon-blue), #0099ff);
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 212, 255, 0.25);
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav a.active {
+    color: var(--neon-blue);
+    border-bottom: 2px solid var(--neon-blue);
+    padding-bottom: 4px;
 }
 
 /* --- CONTACT FORM --- */
@@ -216,9 +393,14 @@ h2 { font-size: 2.5rem; margin-bottom: 40px; text-align: center; text-transform:
 /* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 900px) {
     .hero-container, .about-grid { grid-template-columns: 1fr; text-align: center; }
-    .hero-image { order: -1; } /* Image on top for mobile */
-    nav { display: none; } /* Hide desktop nav */
-    .menu-toggle { display: block; }
+    .hero-image { order: -1; }
+    .hero { padding-top: 120px; }
+    nav { display: none; }
+    .menu-toggle { display: flex; }
+    .about-intro { padding-top: 120px; }
+    .contact-content { flex-direction: column; }
+    .contact-form { margin: 20px 0 0; }
+    .team-modern-grid { grid-template-columns: 1fr; }
 }
 
 /* --- UNIVERSAL IMAGE STANDARDIZATION --- */
@@ -366,6 +548,20 @@ h2 { font-size: 2.5rem; margin-bottom: 40px; text-align: center; text-transform:
     opacity: 1;
 }
 
+.project-card .name-overlay p {
+    margin-top: 8px;
+}
+
+.project-card .name-overlay a {
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-card .name-overlay a:hover {
+    text-decoration: underline;
+}
+
 /* Typography Inside Cards */
 .member-role {
     display: block;
@@ -418,7 +614,7 @@ h2 { font-size: 2.5rem; margin-bottom: 40px; text-align: center; text-transform:
 
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
 }
 
@@ -751,7 +947,7 @@ nav a.active {
 
 .mission-vision {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     padding: 100px 8%;
 }
@@ -771,7 +967,7 @@ nav a.active {
 /* Core Values Grid */
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     padding: 60px 8%;
 }
@@ -799,19 +995,23 @@ nav a.active {
 /* --- MOBILE RESPONSIVENESS OVERHAUL --- */
 
 @media (max-width: 768px) {
-    /* 1. Navigation */
     .menu-toggle {
-        display: block; /* Show hamburger */
+        display: flex;
         font-size: 28px;
         cursor: pointer;
         z-index: 1001;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text-main);
     }
 
     #navMenu {
         position: fixed;
         top: 0;
-        right: -100%; /* Hide off-screen */
-        width: 80%;
+        right: -100%;
+        width: min(82%, 320px);
         height: 100vh;
         background: rgba(2, 2, 5, 0.98);
         backdrop-filter: blur(15px);
@@ -819,16 +1019,21 @@ nav a.active {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 30px;
-        transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        gap: 24px;
+        transition: 0.35s ease;
         z-index: 1000;
+        padding: 24px;
     }
 
     #navMenu.active {
-        right: 0; /* Slide in */
+        right: 0;
     }
 
-    /* 2. Hero Section */
+    #navMenu a {
+        margin-left: 0;
+        font-size: 1rem;
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
@@ -839,45 +1044,41 @@ nav a.active {
         font-size: 2.5rem;
     }
 
-    /* 3. Services & Bento Grids */
-    .erp-glass-card {
-        grid-template-columns: 1fr;
-        padding: 30px;
-        text-align: center;
-    }
-
-    .erp-visual {
-        order: -1; /* Image appears above text on mobile */
-    }
-
     .products-grid, .values-grid, .bento-grid {
-        grid-template-columns: 1fr; /* Stack cards vertically */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    /* 4. Team Section */
     .team-modern-grid {
         grid-template-columns: 1fr;
-        padding: 0 10%;
+        padding: 0 4%;
     }
 
     .team-glass-card {
-        aspect-ratio: 1 / 1.2; /* Slightly wider on mobile */
+        aspect-ratio: 1 / 1.2;
     }
 
-    /* 5. Contact Section */
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info-glass {
-        padding: 30px;
-    }
-
-    /* 6. About Page Specifics */
     .mission-vision {
         grid-template-columns: 1fr;
         padding: 60px 5%;
+    }
+
+    .vision-box, .value-card, .bento-card {
+        padding: 28px;
+    }
+
+    .hero-actions, .about-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-secondary, .btn-outline, .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contact-info {
+        padding-right: 0;
     }
 }
 
@@ -886,6 +1087,30 @@ nav a.active {
     .products-grid, .values-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+/* --- LIGHT THEME ENHANCEMENTS --- */
+body.light-theme .navbar,
+body.light-theme .vision-box,
+body.light-theme .value-card,
+body.light-theme .bento-card,
+body.light-theme .team-glass-card,
+body.light-theme .contact-form input,
+body.light-theme .contact-form textarea,
+body.light-theme .product-card,
+body.light-theme .service-card {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-main);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .contact-form input,
+body.light-theme .contact-form textarea {
+    color: var(--text-main);
+}
+
+body.light-theme .theme-toggle-button {
+    color: var(--text-main);
 }
 
 /* --- DIRECTORS SPOTLIGHT --- */

@@ -19,13 +19,14 @@
 
         <nav id="navMenu">
             <a href="index.html" class="nav-link">HOME</a>
-            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="about.html" class="nav-link active">ABOUT & PROJECTS</a>
             <a href="index.html#services" class="nav-link">SERVICES</a>
-            <a href="subscription.html" class="nav-link">SUBSCRIPTION</a>
+            <a href="about.html#projects" class="nav-link">PROJECTS</a>
             <a href="index.html#contact" class="nav-link">CONTACT</a>
         </nav>
 
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <button id="theme-toggle" class="theme-toggle-button" aria-label="Toggle Light/Dark Theme" aria-pressed="false">🌗</button>
+        <div class="menu-toggle" role="button" aria-label="Toggle navigation">☰</div>
     </div>
 </header>
 
@@ -37,79 +38,169 @@
     <div class="hero-content">
         <span class="eyebrow">Established 2025</span>
         <h1 class="glow-text">Engineering <br>Digital Resilience</h1>
-        <p>We build the infrastructure that allows modern organizations to scale without limits.</p>
-<br>    
-   <p>Mageta-Software Inc. is a subsidiary of Mageta Inc., created in 2025 under the vision and leadership 
-        of <b>Sir Gabriel Marrion Manhanga</b>, the CTO of Mageta Inc.
-As the founder of Mageta-Software Inc., Sir Gabriel leads the company’s mission to design modern ERP systems, 
-digital school platforms, business automation tools,
- and cloud-powered solutions that bring efficiency to organizations of all sizes. also Provide all Software related projects. 
-    </p> 
+        <p>MagetaSoftware Inc. is a forward-thinking technology and creative partner based in Norton, Zimbabwe, creating digital solutions that help businesses and individuals thrive locally and globally.</p>
+        <p>We combine software development, web design, branding, and IT support to deliver reliable, high-performance experiences for clients across the world. Our leadership, Sir Michael Manhanga and Sir Gabriel Manhanga, continues the legacy of George Tanyaradzwa Manhanga and Buzani Manhanga through purposeful innovation and trusted execution.</p>
+        <div class="hero-actions">
+            <a href="index.html#contact" class="btn-secondary">Book a Consultation</a>
+            <a href="https://wa.me/919779912753?text=Hello%20MagetaSoftware%20Inc.%2C%20I%20would%20like%20to%20discuss%20a%20project." class="btn-outline" target="_blank" rel="noopener noreferrer">WhatsApp Now</a>
+        </div>
     </div>
 </section>
 
 <section class="mission-vision">
     <div class="vision-box glass">
-        <h2>Our Mission</h2>
-        <p>To empower enterprises with intelligent ERP solutions and custom software that transforms data into actionable strategy.</p>
+        <h2>Our Vision</h2>
+        <p>To be the leading global catalyst for digital transformation, empowering every business and individual to claim their space and thrive in the modern digital economy.</p>
     </div>
     <div class="vision-box glass highlight">
-        <h2>Our Vision</h2>
-        <p>To become the global gold standard for organizational efficiency through ethical AI and robust software architecture.</p>
+        <h2>Our Mission</h2>
+        <p>To deliver high-performance software, striking brand design, and reliable IT expertise, making cutting-edge technology accessible, efficient, and profitable for our clients.</p>
     </div>
 </section>
 
 <section class="values-section">
-    <h2 class="section-title">Core Principles</h2>
+    <h2 class="section-title">Core Values</h2>
     <div class="values-grid">
         <div class="value-card">
-            <span class="value-icon">💎</span>
-            <h4>Integrity</h4>
-            <p>Transparent communication and ethical engineering in every line of code.</p>
+            <span class="value-icon">🏛️</span>
+            <h4>Heritage & Integrity</h4>
+            <p>Honoring our roots while operating with transparency and dedication in every client partnership.</p>
         </div>
         <div class="value-card">
-            <span class="value-icon">🎯</span>
-            <h4>Precision</h4>
-            <p>We don't just solve problems; we optimize the entire workflow.</p>
+            <span class="value-icon">⚙️</span>
+            <h4>Technical Excellence</h4>
+            <p>Building robust, scalable, and secure software and web solutions that drive productivity.</p>
         </div>
         <div class="value-card">
-            <span class="value-icon">🔄</span>
-            <h4>Agility</h4>
-            <p>Staying ahead of the curve so our clients never fall behind.</p>
+            <span class="value-icon">🎨</span>
+            <h4>Creative Innovation</h4>
+            <p>Designing distinctive visual identities that make our clients stand out in crowded markets.</p>
+        </div>
+        <div class="value-card">
+            <span class="value-icon">🤝</span>
+            <h4>Customer-Centric Execution</h4>
+            <p>Treating every project—big or small—with the tailored focus and agility it deserves.</p>
         </div>
     </div>
 </section>
 
-<section class="team-section">
-    <h2 class="section-title">The Leadership</h2>
+<section class="services-section">
+    <h2 class="section-title">Detailed Service Breakdown</h2>
+    <div class="bento-grid">
+        <div class="bento-card">
+            <h3>Web Development & Digital Footprint</h3>
+            <p>Custom websites, web applications, and search-optimized digital experiences designed for performance and growth.</p>
+        </div>
+        <div class="bento-card highlight">
+            <h3>Creative Graphic Design</h3>
+            <p>Brand identity, logos, marketing materials, banners, and promotional graphics created to capture attention.</p>
+        </div>
+        <div class="bento-card">
+            <h3>Professional IT Support & Consultation</h3>
+            <p>Infrastructure guidance, system diagnostics, technical support, and strategic consulting for modern teams.</p>
+        </div>
+    </div>
+</section>
+
+<section class="values-section">
+    <h2 class="section-title">Who We Serve</h2>
+    <div class="values-grid">
+        <div class="value-card">
+            <span class="value-icon">🏪</span>
+            <h4>Small & Medium Businesses</h4>
+            <p>Looking to establish a professional web presence and streamline IT needs.</p>
+        </div>
+        <div class="value-card">
+            <span class="value-icon">📈</span>
+            <h4>Growing Enterprises</h4>
+            <p>Needing custom web software, brand refreshes, and dedicated IT support.</p>
+        </div>
+        <div class="value-card">
+            <span class="value-icon">🎤</span>
+            <h4>Entrepreneurs & Creators</h4>
+            <p>Seeking logos, personal branding websites, and digital marketing collateral to launch their ideas.</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="team-section">
+    <h2 class="section-title">Featured Projects</h2>
     <div class="team-modern-grid">
-        <div class="team-glass-card">
+        <div class="team-glass-card project-card">
             <div class="image-wrapper">
-                <img src="assets/images/Mike.jpeg" alt="CEO">
+                <img src="assets/images/Excellence Web Service.png" alt="Excellence Web Service">
                 <div class="name-overlay">
-                    <span class="member-role">Chief Executive Officer</span>
-                    <h4>Mr Michael Manhanga</h4>
+                    <span class="member-role">Website Portfolio</span>
+                    <h4>Excellence Web Service</h4>
+                    <p><a href="https://excellence-web-service.vercel.app/" target="_blank" rel="noopener noreferrer">View Project</a></p>
                 </div>
             </div>
         </div>
-        <div class="team-glass-card">
+        <div class="team-glass-card project-card">
             <div class="image-wrapper">
-                <img src="assets/images/Gabe.jpeg" alt="CTO">
+                <img src="assets/images/Mageta Software.png" alt="Mageta Software">
                 <div class="name-overlay">
-                    <span class="member-role">Chief Technology Officer</span>
-                    <h4>Mr Gabriel Manhanga</h4>
+                    <span class="member-role">Software Company Site</span>
+                    <h4>Mageta Software</h4>
+                    <p><a href="https://magetasoftware-in.vercel.app/" target="_blank" rel="noopener noreferrer">View Project</a></p>
                 </div>
             </div>
         </div>
-        <div class="team-glass-card">
+        <div class="team-glass-card project-card">
             <div class="image-wrapper">
-                <img src="assets/images/Meda.jpeg" alt="CFO">
+                <img src="assets/images/Gabriel Portfolio.png" alt="Gabriel Portfolio">
                 <div class="name-overlay">
-                    <span class="member-role">Chief Financial Officer</span>
-                    <h4>Ms Meda-Ruth Manhanga</h4>
+                    <span class="member-role">Personal Portfolio</span>
+                    <h4>Gabriel Portfolio</h4>
+                    <p><a href="https://gabriel-portfolio-mu.vercel.app/" target="_blank" rel="noopener noreferrer">View Project</a></p>
                 </div>
             </div>
         </div>
+        <div class="team-glass-card project-card">
+            <div class="image-wrapper">
+                <img src="assets/images/AGK Biofuels.png" alt="AGK Biofuels">
+                <div class="name-overlay">
+                    <span class="member-role">Business Website</span>
+                    <h4>AGK Biofuels</h4>
+                    <p><a href="https://agk-biofuels-web.vercel.app/" target="_blank" rel="noopener noreferrer">View Project</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="values-section">
+    <h2 class="section-title">Company Details</h2>
+    <div class="values-grid">
+        <div class="value-card">
+            <span class="value-icon">🏢</span>
+            <h4>Company Name</h4>
+            <p>MagetaSoftware Inc.</p>
+        </div>
+        <div class="value-card">
+            <span class="value-icon">📍</span>
+            <h4>Physical Address</h4>
+            <p>Norton, Zimbabwe</p>
+        </div>
+        <div class="value-card">
+            <span class="value-icon">🌍</span>
+            <h4>Service Coverage</h4>
+            <p>Worldwide / Remote & On-Site IT Solutions</p>
+        </div>
+        <div class="value-card">
+            <span class="value-icon">🧭</span>
+            <h4>Founding Heritage</h4>
+            <p>Founded on the legacy of George Tanyaradzwa Manhanga & Buzani Manhanga</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact-cta">
+    <h2>Let’s build something exceptional together</h2>
+    <p>From custom websites to branding and IT support, we are ready to help you launch with confidence.</p>
+    <div class="about-buttons">
+        <a href="index.html#contact" class="btn-secondary">Get In Touch</a>
+        <a href="https://wa.me/919779912753?text=Hello%20MagetaSoftware%20Inc.%2C%20I%20would%20like%20to%20discuss%20a%20project." class="btn-outline" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
     </div>
 </section>
 
@@ -125,7 +216,7 @@ digital school platforms, business automation tools,
                 <h4>Navigation</h4>
                 <div class="footer-links">
                     <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
+                    <a href="about.html">About & Projects</a>
                     <a href="index.html#services">Services</a>
                     <a href="index.html#contact">Contact</a>
                 </div>
@@ -133,8 +224,9 @@ digital school platforms, business automation tools,
 
             <div class="footer-col">
                 <h4>Connect</h4>
-                <p>📧 magetathepodcast@gmail.com</p>
+                <p>📧 magetaproductioncomapny@gmail.com</p>
                 <p>📞 +91 9779912755</p>
+                <p>📸 <a href="https://www.instagram.com/magetaproductioncompany.ltd/" target="_blank" rel="noopener noreferrer">@magetaproductioncompany.ltd</a></p>
             </div>
         </div>
         
@@ -143,6 +235,10 @@ digital school platforms, business automation tools,
         </div>
     </div>
 </footer>
+
+<a href="https://wa.me/919779912753?text=Hello%20MagetaSoftware%20Inc.%2C%20I%20would%20like%20to%20discuss%20a%20project." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    💬
+</a>
 
 <script src="js/main.js"></script>
 </body>

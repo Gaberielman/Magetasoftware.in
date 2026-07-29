@@ -66,7 +66,7 @@
             position: absolute;
             top: -12px;
             right: 30px;
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            background: linear-gradient(135deg, var(--neon-blue), #0099ff);
             color: #000;
             padding: 6px 16px;
             border-radius: 20px;
@@ -111,7 +111,7 @@
 
         .plan-features li:before {
             content: "✓";
-            color: #00d4ff;
+            color: var(--neon-blue);
             font-weight: bold;
             margin-right: 12px;
             font-size: 1.1rem;
@@ -172,7 +172,7 @@
         .comparison-table th {
             background: rgba(0, 212, 255, 0.1);
             font-weight: 600;
-            color: #00d4ff;
+            color: var(--neon-blue);
         }
 
         .comparison-table tr:last-child td {
@@ -180,7 +180,7 @@
         }
 
         .check-icon {
-            color: #00d4ff;
+            color: var(--neon-blue);
             font-weight: bold;
             font-size: 1.2rem;
         }
@@ -206,6 +206,7 @@
             color: var(--neon-blue);
             margin-bottom: 12px;
             cursor: pointer;
+            transition: color 0.3s ease;
         }
 
         .faq-item p {
@@ -229,7 +230,7 @@
         }
 
         .nav-link {
-            color: #fff;
+            color: var(--text-main);
             text-decoration: none;
             font-weight: 600;
             letter-spacing: 0.08em;
@@ -237,24 +238,24 @@
         }
 
         .theme-toggle-button {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: var(--glass);
+            border: 1px solid var(--border-glass);
             border-radius: 999px;
             padding: 12px 16px;
-            color: #fff;
+            color: var(--text-main);
             cursor: pointer;
         }
 
         .menu-toggle {
             display: none;
-            background: rgba(255, 255, 255, 0.08);
+            background: var(--glass);
             border-radius: 50%;
             width: 48px;
             height: 48px;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            color: #fff;
+            color: var(--text-main);
             font-size: 1.2rem;
         }
 
@@ -287,7 +288,7 @@
         }
 
         .modal-dialog .modal-intro {
-            color: #cbd5e1;
+            color: var(--text-muted);
             margin-bottom: 24px;
         }
 
@@ -296,16 +297,16 @@
             margin-bottom: 8px;
             margin-top: 18px;
             font-weight: 600;
-            color: #fff;
+            color: var(--text-main);
         }
 
         .modal-dialog input,
         .modal-dialog textarea {
             width: 100%;
             border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
+            border: 1px solid var(--border-glass);
+            background: var(--glass);
+            color: var(--text-main);
             padding: 14px 16px;
         }
 
@@ -328,7 +329,7 @@
                 flex-direction: column;
                 width: 100%;
                 gap: 12px;
-                background: rgba(2, 2, 10, 0.95);
+                background: var(--bg-surface);
                 padding: 16px;
                 border-radius: 16px;
             }
