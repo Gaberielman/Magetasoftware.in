@@ -1007,6 +1007,11 @@ nav a.active {
         color: var(--text-main);
     }
 
+    body.light-theme .menu-toggle {
+        background: rgba(15, 23, 42, 0.08);
+        color: var(--text-main);
+    }
+
     #navMenu {
         position: fixed;
         top: 0;
@@ -1023,6 +1028,12 @@ nav a.active {
         transition: 0.35s ease;
         z-index: 1000;
         padding: 24px;
+    }
+
+    body.light-theme #navMenu {
+        background: rgba(255, 255, 255, 0.97);
+        box-shadow: -10px 0 30px rgba(15, 23, 42, 0.12);
+        border-left: 1px solid rgba(15, 23, 42, 0.08);
     }
 
     #navMenu.active {
@@ -1111,6 +1122,14 @@ body.light-theme .contact-form textarea {
 
 body.light-theme .theme-toggle-button {
     color: var(--text-main);
+}
+
+body.light-theme #navMenu a {
+    color: var(--text-main);
+}
+
+body.light-theme #navMenu a:hover {
+    color: var(--neon-blue);
 }
 
 /* --- DIRECTORS SPOTLIGHT --- */
