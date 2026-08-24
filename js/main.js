@@ -27,16 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.querySelectorAll('.card, .hero-text, section h2').forEach(el => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(40px)";
-        el.style.transition = "all 1.2s cubic-bezier(0.16, 1, 0.3, 1)";
+        el.style.transition = "opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)";
         revealObserver.observe(el);
     });
 
     function applyTheme(theme) {
         body.classList.toggle('light-theme', theme === 'light');
         if (themeToggle) {
-            themeToggle.textContent = theme === 'light' ? '☀️' : '🌗';
+            themeToggle.textContent = theme === 'light' ? 'DARK' : 'LIGHT';
+            themeToggle.setAttribute('title', `Switch to ${theme === 'light' ? 'dark' : 'light'} theme`);
             themeToggle.setAttribute('aria-pressed', String(theme === 'light'));
         }
     }

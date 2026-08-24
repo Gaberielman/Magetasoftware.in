@@ -350,7 +350,7 @@
         }
     </style>
 </head>
-<body>
+<body class="subscription-page">
 
 <!-- NAVIGATION -->
 <header class="navbar">
@@ -364,13 +364,14 @@
             <a href="index.html#contact" class="nav-link">CONTACT</a>
         </nav>
         <button id="theme-toggle" class="theme-toggle-button" aria-label="Toggle Light/Dark Theme">🌗</button>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="menu-toggle" role="button" aria-label="Toggle navigation">☰</div>
     </div>
 </header>
 
 <!-- SUBSCRIPTION HEADER -->
 <section class="subscription-section">
     <div class="subscription-header">
+        <img class="page-logo subscription-logo" src="assets/images/Logo mageta.png" alt="Mageta Software logo">
         <h1>Choose Your Plan</h1>
         <p>Select the perfect subscription package tailored to your business needs. All plans include premium support and regular updates.</p>
     </div>
@@ -384,7 +385,7 @@
             <div class="plan-billing">/month - Billed monthly</div>
             <ul class="plan-features">
                 <li>Up to 5 users</li>
-                <li>Basic ERP features</li>
+                <li>Essential business workflows</li>
                 <li>Email support</li>
                 <li>1 GB storage</li>
                 <li>Monthly backups</li>
@@ -401,7 +402,7 @@
             <div class="plan-billing">/month - Billed monthly</div>
             <ul class="plan-features">
                 <li>Up to 50 users</li>
-                <li>Advanced ERP features</li>
+                <li>Advanced business workflows</li>
                 <li>24/7 priority support</li>
                 <li>100 GB storage</li>
                 <li>Daily automated backups</li>
@@ -418,7 +419,7 @@
             <div class="plan-billing">Contact us for pricing</div>
             <ul class="plan-features">
                 <li>Unlimited users</li>
-                <li>Full ERP suite</li>
+                <li>Full business workflow suite</li>
                 <li>Dedicated account manager</li>
                 <li>Unlimited storage</li>
                 <li>Real-time backups</li>
@@ -738,13 +739,8 @@
     <p>&copy; <span id="year"></span> Mageta Software Inc. All rights reserved.</p>
 </footer>
 
+<script src="js/main.js"></script>
 <script>
-    // Mobile menu toggle
-    function toggleMenu() {
-        const navMenu = document.getElementById('navMenu');
-        navMenu.classList.toggle('active');
-    }
-
     // Close mobile menu when clicking links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
@@ -760,20 +756,6 @@
     const inquiryForm = document.getElementById('inquiry-form');
     const selectedPlanInput = document.getElementById('selected-plan');
     const closeModalButton = document.getElementById('close-modal');
-
-    // Theme toggle
-    const currentTheme = localStorage.getItem('site-theme');
-    if (currentTheme === 'light') {
-        document.body.classList.add('light-theme');
-        themeToggle.textContent = '☀️';
-    }
-
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-theme');
-        const isLight = document.body.classList.contains('light-theme');
-        localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
-        themeToggle.textContent = isLight ? '☀️' : '🌗';
-    });
 
     // Subscribe button handlers
     document.querySelectorAll('.plan-button[data-plan]').forEach(button => {
