@@ -280,6 +280,7 @@
 <!-- CONTACT SECTION -->
 <section id="contact" class="contact">
     <div class="contact-header">
+        <img class="contact-logo" src="assets/images/Logo mageta.png" alt="Mageta Software logo">
         <h2>Get In Touch</h2>
         <p>Ready to build something extraordinary? Our team is standing by.</p>
     </div>
@@ -315,7 +316,7 @@
                     <h4>Location</h4>
                     <p>- Norton, Zimbabwe</p>
                     <p>- Ludhniana, India</p>
-                    <p>- North West, South Africa</p>
+                    <p>- Rustenburg, South Africa</p>
                 </div>
             </div>
             <div class="info-item">
@@ -340,12 +341,6 @@
                 </div>
             </div>
         </div>
-        <form class="contact-form" id="contactForm">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit" class="btn-primary">Send Message</button>
-        </form>
     </div>
 </section>
 
@@ -374,12 +369,6 @@
 
 <script src="js/main.js"></script>
 <script>
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Thank you for your message! Our team will contact you soon.');
-        e.target.reset();
-    });
-
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
