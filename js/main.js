@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.documentElement;
     const body = document.body;
+    const logoSplash = document.getElementById('logo-splash');
     const themeToggle = document.getElementById('theme-toggle');
     const navMenu = document.getElementById('navMenu');
     const menuToggle = document.querySelector('.menu-toggle');
@@ -91,6 +92,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    if (logoSplash) {
+        const splashSeen = sessionStorage.getItem('mageta-splash-seen');
+        if (splashSeen) {
+            logoSplash.remove();
+            body.classList.remove('has-splash');
+        } else {
+            sessionStorage.setItem('mageta-splash-seen', 'true');
+            window.setTimeout(() => {
+                logoSplash.classList.add('is-hidden');
+                body.classList.remove('has-splash');
+                window.setTimeout(() => logoSplash.remove(), 800);
+            }, 1500);
+        }
+    }
 });
 
 const style = document.createElement('style');
