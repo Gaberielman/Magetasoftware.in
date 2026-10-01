@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://magetasoftware-in.vercel.app/sitemap.xml

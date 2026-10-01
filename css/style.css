@@ -2416,6 +2416,98 @@ body.light-theme .plan-button:not(.outline) {
 
 .menu-toggle:hover { transform: rotate(8deg); border-color: var(--neon-blue); background: var(--accent-soft); }
 
+/* Mobile navigation: a full-width, touch-friendly panel below the fixed header. */
+@media (max-width: 768px) {
+    .navbar { z-index: 1100; }
+
+    .navbar .nav-container {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .navbar .logo {
+        flex: 1 1 auto;
+        font-size: clamp(0.9rem, 4vw, 1.1rem);
+        letter-spacing: -0.03em;
+    }
+
+    .navbar .theme-toggle-button {
+        flex: 0 0 54px;
+        width: 54px;
+        min-width: 54px;
+        height: 42px;
+        padding: 6px;
+        font-size: 9px;
+    }
+
+    .navbar .menu-toggle {
+        display: grid;
+        place-items: center;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 1px solid var(--page-line);
+        border-radius: 12px !important;
+        background: var(--card-surface);
+        color: var(--text-main);
+        font: 24px/1 var(--font-main);
+        cursor: pointer;
+        z-index: 1101;
+    }
+
+    .navbar .menu-toggle.active { color: var(--neon-blue); }
+
+    #navMenu,
+    #navMenu.active {
+        position: fixed;
+        inset: var(--nav-h) 0 auto;
+        width: 100%;
+        height: calc(100dvh - var(--nav-h));
+        max-height: calc(100dvh - var(--nav-h));
+        padding: clamp(28px, 8vh, 72px) 8%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
+        overflow-y: auto;
+        background: color-mix(in srgb, var(--bg-deep) 97%, transparent);
+        backdrop-filter: blur(22px);
+        border-top: 1px solid var(--page-line);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-12px);
+        transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
+        z-index: 1100;
+    }
+
+    #navMenu.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    #navMenu .nav-link {
+        display: flex;
+        align-items: center;
+        min-height: 64px;
+        margin: 0;
+        padding: 0 4px;
+        border-bottom: 1px solid var(--page-line);
+        color: var(--text-main);
+        font: 500 clamp(1.25rem, 6vw, 1.8rem) var(--font-main);
+        letter-spacing: -0.04em;
+    }
+
+    #navMenu .nav-link:hover,
+    #navMenu .nav-link.active { color: var(--neon-blue); }
+
+    body.menu-open { overflow: hidden; }
+}
+
 @media (max-width: 768px) {
     .btn,
     .btn-primary,
