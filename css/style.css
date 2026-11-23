@@ -2591,6 +2591,12 @@ body.light-theme .plan-button:not(.outline) {
 .about-page .eyebrow { letter-spacing: 0.15em; font: 500 10px var(--font-mono); }
 .about-page .hero-actions { justify-content: flex-start; margin-top: 34px; }
 .about-page .mission-vision { max-width: 1400px; margin: 0 auto; padding: 75px 8%; border-top: 1px solid var(--about-rule); }
+.about-page .leadership-section { max-width: 1400px; margin: 0 auto; padding: 90px 8%; border-top: 1px solid var(--about-rule); display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr); align-items: center; gap: clamp(36px, 8vw, 110px); }
+.about-page .leadership-copy .section-title { margin: 18px 0 24px; }
+.about-page .leadership-copy p { max-width: 570px; margin: 0 0 28px; color: var(--about-muted); font-size: 1.05rem; line-height: 1.7; }
+.about-page .leadership-portrait { display: block; overflow: hidden; border: 1px solid var(--about-rule); aspect-ratio: 4 / 5; }
+.about-page .leadership-portrait img { width: 100%; height: 100%; display: block; object-fit: cover; filter: grayscale(18%); transition: transform 0.5s ease, filter 0.5s ease; }
+.about-page .leadership-portrait:hover img { transform: scale(1.035); filter: grayscale(0); }
 .about-page .vision-box { padding: 28px 0 10px; border: 0; border-radius: 0; background: transparent; }
 .about-page .vision-box:first-child { border-top: 3px solid var(--neon-blue); }
 .about-page .vision-box.highlight { background: transparent; border-color: var(--neon-blue); }
@@ -2610,6 +2616,7 @@ body.light-theme .plan-button:not(.outline) {
 .about-page .bento-card h3 { max-width: 230px; font-size: 1.25rem; }
 .about-page .bento-card p { max-width: 260px; color: var(--about-muted); font-size: 0.9rem; }
 .about-page .team-modern-grid { margin-top: 45px; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.about-page .about-work-intro { max-width: 620px; margin: 0; color: var(--about-muted); line-height: 1.65; }
 .about-page .team-glass-card { border: 1px solid var(--about-rule); border-radius: 0; aspect-ratio: 4 / 3; background: transparent; }
 .about-page .team-glass-card img { filter: grayscale(20%); }
 .about-page .name-overlay { padding: 28px 22px; }
@@ -2634,6 +2641,8 @@ body.light-theme .plan-button:not(.outline) {
     .about-page .about-hero p { max-width: 100%; }
     .about-page .about-hero .hero-actions { width: 100%; }
     .about-page .values-grid { grid-template-columns: 1fr; }
+    .about-page .leadership-section { grid-template-columns: 1fr; gap: 32px; }
+    .about-page .leadership-portrait { max-width: 520px; }
     .about-page .team-modern-grid { grid-template-columns: 1fr; gap: 24px; }
     .about-page .team-glass-card { aspect-ratio: 4 / 3; }
     .about-page .value-card { min-height: 220px; }
